@@ -14,15 +14,13 @@ When in doubt, return here.
 
 Write code a tired person can understand at 3 AM.
 
-If two solutions work, pick the one with fewer moving parts. Save cleverness
-for problems that actually need it.
+If two solutions work, pick the one with fewer moving parts. Save cleverness for problems that actually need it.
 
 #### 2. Vertical slices
 
 All code for a feature lives in one module folder.
 
-Models, handlers, services, and repositories sit together. When you need to
-change "payments," you open one folder not five.
+Models, handlers, services, and repositories sit together. When you need to change "payments," you open one folder not five.
 
 #### 3. Business logic never lives in handlers
 
@@ -32,13 +30,11 @@ Services contain all business rules. This keeps logic testable without HTTP.
 
 #### 4. Database access only through repositories
 
-Only repository files touch SQL. Services call repositories. Handlers never
-touch the database directly.
+Only repository files touch SQL. Services call repositories. Handlers never touch the database directly.
 
 #### 5. Validate at the boundary
 
-Every API input is validated before it enters the system. Invalid data should
-never reach business logic.
+Every API input is validated before it enters the system. Invalid data should never reach business logic.
 
 #### 6. Fail loudly
 
@@ -56,8 +52,7 @@ One implementation = inline it. Two implementations = consider it. Three = extra
 
 NFC reader logic, SPI communication, and GPIO code live only in `hardware/`.
 
-Applications never import hardware dependencies directly. The reader
-communicates via HTTP to the backend.
+Applications never import hardware dependencies directly. The reader communicates via HTTP to the backend.
 
 #### 9. Security is not optional
 
@@ -68,13 +63,6 @@ communicates via HTTP to the backend.
 - Never commit secrets
 
 Security is a default requirement, not an afterthought.
-
-#### 10. Document decisions
-
-Write down why you chose something, not just what you chose.
-
-Six months from now, you'll need to know why the reader is a separate binary,
-not a library.
 
 
 ### Application
