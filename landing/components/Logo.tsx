@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { logos } from "@/data/Logo";
+import { logos } from "@/data/logo";
 
 export default function Logo() {
   const trackRef = useRef<HTMLDivElement>(null);
