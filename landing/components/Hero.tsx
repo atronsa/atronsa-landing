@@ -1,4 +1,4 @@
-import { STARS } from "@/data/Star";
+import { STARS } from "@/data/star";
 
 export default function Hero() {
   return (
