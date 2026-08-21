@@ -5,7 +5,7 @@ import { PRICES } from "@/data/price";
 const Pricing = () => {
   return (
     <section
-      id="service"
+      id="investment"
       className="relative w-full overflow-hidden bg-black px-4 sm:px-6 lg:px-16 pt-10 sm:pt-12 md:pt-16 lg:pt-24"
     >
       <div
@@ -33,7 +33,7 @@ const Pricing = () => {
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white/70" />
             </span>
 
-            <span className="font-poppins text-[9px] tracking-wide text-white/50 sm:text-xs">
+            <span className="font-poppins text-[9px] tracking-wide text-white/70 sm:text-xs">
               Pricing
             </span>
           </div>
@@ -41,12 +41,12 @@ const Pricing = () => {
           <h2 className="animate-fade-in-up font-title text-[clamp(3rem,8vw,5.5rem)] font-medium leading-[0.9] tracking-[-0.055em] text-white [animation-delay:150ms]">
             Flexible pricing
             <br />
-            <span className="bg-linear-to-r from-white/35 via-white/20 to-white/10 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white/60 via-white/40 to-white/30 bg-clip-text text-transparent">
               for every business.
             </span>
           </h2>
 
-          <p className="animate-fade-in-up mx-auto mt-6 max-w-3xl font-poppins text-sm sm:text-base leading-relaxed text-light-gray [animation-delay:300ms] sm:mt-8">
+          <p className="animate-fade-in-up mx-auto mt-6 max-w-3xl font-poppins text-sm sm:text-base leading-relaxed text-gray-300 [animation-delay:300ms] sm:mt-8">
             Straightforward packages for professionals and businesses. Choose
             what fits your needs today and scale when you're ready.
           </p>
@@ -91,13 +91,13 @@ const Pricing = () => {
                   <div className="relative z-10">
                     <div className="flex items-center justify-between">
                       <span
-                        className={`font-poppins text-xs font-medium sm:text-sm ${featured ? "text-black/60" : "text-white/60"}`}
+                        className={`font-poppins text-xs font-medium sm:text-sm ${featured ? "text-gray-700" : "text-white/80"}`}
                       >
                         {service.for}
                       </span>
 
                       <span
-                        className={`font-poppins text-[13px] ${featured ? "text-black/60" : "text-white/60"}`}
+                        className={`font-poppins text-[13px] ${featured ? "text-gray-700" : "text-white/80"}`}
                       >
                         0{index + 1}
                       </span>
@@ -113,7 +113,7 @@ const Pricing = () => {
                       <div>
                         <p
                           className={`mb-2 font-poppins text-[10px] uppercase tracking-[0.12em] ${
-                            featured ? "text-black/60" : "text-white/60"
+                            featured ? "text-gray-700" : "text-white/80"
                           }`}
                         >
                           {service.priceLabel}
@@ -129,8 +129,8 @@ const Pricing = () => {
                           </span>
 
                           <span
-                            className={`font-poppins text-xs ${
-                              featured ? "text-black/35" : "text-white/30"
+                            className={`font-poppins text-xs font-medium ${
+                              featured ? "text-gray-600" : "text-white/70"
                             }`}
                           >
                             ETB
@@ -140,20 +140,19 @@ const Pricing = () => {
                     </div>
 
                     <p
-                      className={`mt-6 max-w-sm font-poppins text-[11px] leading-relaxed sm:text-xs ${featured ? "text-black/60" : "text-white/60"}`}
+                      className={`mt-6 max-w-sm font-poppins text-[11px] leading-relaxed sm:text-xs ${featured ? "text-gray-700" : "text-white/80"}`}
                     >
                       {service.shortDescription}
                     </p>
 
-                    {/* Best for tags */}
                     <div className="mt-4 flex flex-wrap gap-1.5">
                       {service.bestFor.map((item) => (
                         <span
                           key={item}
-                          className={`rounded-lg px-2 py-1 font-poppins text-[9px] ${
+                          className={`rounded-lg px-2 py-1 font-poppins text-[9px] font-medium ${
                             featured
-                              ? "bg-black/5 text-black/60"
-                              : "bg-white/5 text-white/50"
+                              ? "bg-black/10 text-gray-800"
+                              : "bg-white/10 text-white/80"
                           }`}
                         >
                           {item}
@@ -167,52 +166,51 @@ const Pricing = () => {
                       className={`mb-5 h-px w-full ${featured ? "bg-black/10" : "bg-white/[0.07]"}`}
                     />
 
-                    {/* Quick info */}
                     <div className="mb-5 grid grid-cols-2 gap-3">
                       <div>
                         <p
-                          className={`font-poppins text-[9px] uppercase tracking-wide ${featured ? "text-black/40" : "text-white/40"}`}
+                          className={`font-poppins text-[9px] uppercase tracking-wide font-medium ${featured ? "text-gray-600" : "text-white/70"}`}
                         >
                           Pages
                         </p>
                         <p
-                          className={`mt-1 font-poppins text-[11px] font-medium ${featured ? "text-black/70" : "text-white/70"}`}
+                          className={`mt-1 font-poppins text-[11px] font-medium ${featured ? "text-gray-800" : "text-white/90"}`}
                         >
                           {service.pagesIncluded}
                         </p>
                       </div>
                       <div>
                         <p
-                          className={`font-poppins text-[9px] uppercase tracking-wide ${featured ? "text-black/40" : "text-white/40"}`}
+                          className={`font-poppins text-[9px] uppercase tracking-wide font-medium ${featured ? "text-gray-600" : "text-white/70"}`}
                         >
                           Delivery
                         </p>
                         <p
-                          className={`mt-1 font-poppins text-[11px] font-medium ${featured ? "text-black/70" : "text-white/70"}`}
+                          className={`mt-1 font-poppins text-[11px] font-medium ${featured ? "text-gray-800" : "text-white/90"}`}
                         >
                           {service.delivery}
                         </p>
                       </div>
                       <div>
                         <p
-                          className={`font-poppins text-[9px] uppercase tracking-wide ${featured ? "text-black/40" : "text-white/40"}`}
+                          className={`font-poppins text-[9px] uppercase tracking-wide font-medium ${featured ? "text-gray-600" : "text-white/70"}`}
                         >
                           Revisions
                         </p>
                         <p
-                          className={`mt-1 font-poppins text-[11px] font-medium ${featured ? "text-black/70" : "text-white/70"}`}
+                          className={`mt-1 font-poppins text-[11px] font-medium ${featured ? "text-gray-800" : "text-white/90"}`}
                         >
                           {service.revisions}
                         </p>
                       </div>
                       <div>
                         <p
-                          className={`font-poppins text-[9px] uppercase tracking-wide ${featured ? "text-black/40" : "text-white/40"}`}
+                          className={`font-poppins text-[9px] uppercase tracking-wide font-medium ${featured ? "text-gray-600" : "text-white/70"}`}
                         >
                           Support
                         </p>
                         <p
-                          className={`mt-1 font-poppins text-[11px] font-medium ${featured ? "text-black/70" : "text-white/70"}`}
+                          className={`mt-1 font-poppins text-[11px] font-medium ${featured ? "text-gray-800" : "text-white/90"}`}
                         >
                           {service.supportPeriod}
                         </p>
@@ -226,7 +224,6 @@ const Pricing = () => {
                     <div className="space-y-3.5">
                       {service.description.slice(0, 5).map((item) => (
                         <div key={item} className="flex items-start gap-3">
-                          {/* Check */}
                           <span
                             className={`mt-0.75 flex h-4 w-4 shrink-0 items-center justify-center rounded-xl ${
                               featured
@@ -235,7 +232,7 @@ const Pricing = () => {
                             }`}
                           >
                             <svg
-                              className={`h-2.5 w-2.5 ${featured ? "text-white" : "text-white/60"}`}
+                              className={`h-2.5 w-2.5 ${featured ? "text-white" : "text-white/80"}`}
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -250,7 +247,7 @@ const Pricing = () => {
                           </span>
 
                           <span
-                            className={`font-poppins text-[11px] leading-4 ${featured ? "text-black/60" : "text-white/60"}`}
+                            className={`font-poppins text-[11px] leading-4 ${featured ? "text-gray-700" : "text-white/80"}`}
                           >
                             {item}
                           </span>
@@ -260,10 +257,22 @@ const Pricing = () => {
                   </div>
 
                   <button
+                    onClick={() => {
+                      const contactSection = document.getElementById("contact");
+                      contactSection?.scrollIntoView({ behavior: "smooth" });
+
+                      setTimeout(() => {
+                        window.dispatchEvent(
+                          new CustomEvent("prefill-contact", {
+                            detail: { projectType: service.category },
+                          }),
+                        );
+                      }, 400);
+                    }}
                     className={`group/button relative z-10 mt-8 flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl px-5 py-3.5 font-poppins text-xs font-medium transition-all duration-300 ${
                       featured
                         ? "bg-black text-white hover:bg-black/80"
-                        : "border border-white/10 bg-white/4.5 text-white/65 backdrop-blur-xl hover:border-white/20 hover:bg-white/9 hover:text-white"
+                        : "border border-white/10 bg-white/4.5 text-white/80 backdrop-blur-xl hover:border-white/20 hover:bg-white/9 hover:text-white"
                     }`}
                   >
                     <span>Get started</span>
@@ -289,9 +298,15 @@ const Pricing = () => {
         </div>
 
         <div className="mt-10 flex items-center justify-center gap-3 sm:mt-12">
-          <p className="font-poppins text-[11px] text-white/60 sm:text-[12px]">
+          <p className="font-poppins text-[11px] text-white/70 sm:text-[12px]">
             Need something different?{" "}
-            <button className="text-white/50 underline underline-offset-4 cursor-pointer transition-colors hover:text-white">
+            <button
+              className="text-white/80 underline underline-offset-4 cursor-pointer transition-colors hover:text-white"
+              onClick={() => {
+                const contactSection = document.getElementById("contact");
+                contactSection?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               Let's talk about your project.
             </button>
           </p>
