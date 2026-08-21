@@ -8,7 +8,6 @@ export default function FAQ() {
 
   return (
     <section className="relative overflow-hidden bg-black px-4 sm:px-6 lg:px-16 pt-10 sm:pt-12 md:pt-16 lg:pt-24">
-      {/* Subtle grid */}
       <div
         className="pointer-events-none absolute inset-0 opacity-25"
         style={{
@@ -25,7 +24,7 @@ export default function FAQ() {
       />
 
       <div className="relative mx-auto max-w-9xl">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-[0.8fr_1.2fr] md:items-start md:gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-start md:gap-16 lg:gap-24">
           <div>
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3.5 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl sm:mb-7 sm:px-4">
               <span className="relative flex h-1.5 w-1.5">
@@ -106,7 +105,6 @@ export default function FAQ() {
                     </span>
                   </button>
 
-                  {/* Answer */}
                   <div
                     className={`grid transition-[grid-template-rows,opacity] duration-500 ease-out ${
                       isOpen
