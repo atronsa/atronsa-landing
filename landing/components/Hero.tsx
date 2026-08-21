@@ -1,3 +1,5 @@
+"use client";
+
 import { STARS } from "@/data/star";
 
 export default function Hero() {
@@ -52,6 +54,10 @@ export default function Hero() {
           <button
             type="button"
             className="group relative inline-block w-full max-w-[320px] cursor-pointer rounded-xl bg-white/20 p-px text-sm leading-6 text-white no-underline shadow-2xl shadow-black/10 transition-all duration-300 hover:bg-white/30 sm:w-auto sm:max-w-none"
+            onClick={() => {
+              const contactSection = document.getElementById("contact");
+              contactSection?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             <span className="absolute inset-0 overflow-hidden rounded-xl">
               <span className="absolute inset-0 rounded-full bg-[radial-gradient(75%_100%_at_50%_0%,rgba(255,255,255,0.4)_0%,rgba(255,255,255,0)_75%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -81,6 +87,10 @@ export default function Hero() {
           <button
             type="button"
             className="group relative inline-block w-full max-w-[320px] cursor-pointer rounded-xl bg-white/20 p-px text-sm leading-6 text-white no-underline shadow-2xl shadow-black/10 transition-all duration-300 hover:bg-white/30 sm:w-auto sm:max-w-none"
+            onClick={() => {
+              const contactSection = document.getElementById("work");
+              contactSection?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             <span className="absolute inset-0 overflow-hidden rounded-xl">
               <span className="absolute inset-0 rounded-full bg-[radial-gradient(75%_100%_at_50%_0%,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0)_75%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

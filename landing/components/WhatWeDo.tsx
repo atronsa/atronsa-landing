@@ -2,7 +2,10 @@ import { SERVICES } from "@/data/service";
 
 export default function WhatWeDo() {
   return (
-    <section className="relative overflow-hidden bg-black px-4 sm:px-6 lg:px-16 pt-10 sm:pt-12 md:pt-16 lg:pt-24">
+    <section
+      id="service"
+      className="relative overflow-hidden bg-black px-4 sm:px-6 lg:px-16 pt-10 sm:pt-12 md:pt-16 lg:pt-24"
+    >
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
