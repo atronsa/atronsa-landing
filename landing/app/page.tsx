@@ -1,13 +1,23 @@
+import Hero from "@/components/Hero";
+import Logo from "@/components/Logo";
+import WhatWeDo from "@/components/WhatWeDo";
+import WebResult from "@/components/WebResult";
+import Pricing from "@/components/Pricing";
+import WhatWeBuild from "@/components/WhatWeBuild";
+import FAQ from "@/components/FAQ";
+import Contact from "@/components/Contact";
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center px-8 bg-zinc-50 dark:bg-black font-montserrat">
-      <p className="text-xs md:text-sm lg:text-base font-medium text-center leading-relaxed">
-        Building secure, offline-first, and accessible digital payments for
-        everyone.
-      </p>
-      <p className="text-[9px] md:text-[10px] lg:text-xs pt-3 font-medium text-stone-400">
-        Comming Soon.
-      </p>
-    </div>
+    <main className="relative w-full bg-background">
+      <Hero />
+      <Logo />
+      <WhatWeDo />
+      <WebResult />
+      <Pricing />
+      <WhatWeBuild />
+      <FAQ />
+      <Contact />
+    </main>
   );
 }
