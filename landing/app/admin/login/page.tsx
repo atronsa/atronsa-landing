@@ -107,7 +107,7 @@ function LoginForm() {
           <div className="mb-5">
             <label
               htmlFor="email"
-              className="mb-2 block font-poppins text-[11px] text-white/70"
+              className="mb-2 block font-poppins text-xs sm:text-[13px] text-white/70"
             >
               Email
             </label>
@@ -116,7 +116,7 @@ function LoginForm() {
               type="email"
               disabled={isSubmitting}
               {...register("email")}
-              className="w-full border-b border-white/12 bg-transparent py-2 font-poppins text-[11px] sm:text-[13px] text-light-gray outline-none placeholder:text-white/20 transition-colors focus:border-white/50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full border-b border-white/12 bg-transparent py-1 sm:py-2 font-poppins text-xs sm:text-[13px] text-light-gray outline-none placeholder:text-white/20 transition-colors focus:border-white/50 disabled:cursor-not-allowed disabled:opacity-50"
             />
             {errors.email && (
               <p className="mt-1.5 font-poppins text-[11px] text-red-400/80">
@@ -128,7 +128,7 @@ function LoginForm() {
           <div>
             <label
               htmlFor="password"
-              className="mb-2 block font-poppins text-[11px] text-white/70"
+              className="mb-2 block font-poppins text-xs sm:text-[13px] text-white/70"
             >
               Password
             </label>
@@ -139,7 +139,7 @@ function LoginForm() {
                 type={showPassword ? "text" : "password"}
                 disabled={isSubmitting}
                 {...register("password")}
-                className="w-full border-b border-white/12 bg-transparent py-2 pr-8 font-poppins text-[11px] sm:text-[13px] text-light-gray outline-none placeholder:text-white/20 transition-colors focus:border-white/50 disabled:cursor-not-allowed disabled:opacity-50"
+                className="w-full border-b border-white/12 bg-transparent py-1 sm:py-2 pr-8 font-poppins text-xs sm:text-[13px] text-light-gray outline-none placeholder:text-white/20 transition-colors focus:border-white/50 disabled:cursor-not-allowed disabled:opacity-50"
               />
 
               <button

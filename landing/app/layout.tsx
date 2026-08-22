@@ -8,6 +8,8 @@ import Footer from "@/layout/Footer";
 
 import "./globals.css";
 
+import { DynamicManifest } from "@/components/DynamicManifest";
+
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
@@ -199,6 +201,8 @@ export default function RootLayout({
       `}
     >
       <body className="flex min-h-full flex-col">
+        <DynamicManifest />
+
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-WVHGVWN3"

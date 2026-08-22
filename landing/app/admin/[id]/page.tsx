@@ -127,7 +127,7 @@ export default async function MessageDetailPage({
             <p className="font-poppins text-[10px] uppercase tracking-[0.12em] text-white/35">
               Message
             </p>
-            <p className="mt-3 font-poppins text-xs sm:text-sm leading-7 text-white/70">
+            <p className="mt-3 font-poppins text-xs sm:text-sm leading-relaxed text-white/70">
               {message.message}
             </p>
           </div>
@@ -177,7 +177,7 @@ export default async function MessageDetailPage({
               href={`https://wa.me/${message.phoneNumber.replace(/[^0-9]/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 font-poppins text-[11px] text-white/60 transition-all duration-300 hover:border-white/20 hover:bg-white/8 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/4 px-4 py-2.5 font-poppins text-[11px] text-white/60 transition-all duration-300 hover:border-white/20 hover:bg-white/8 hover:text-white"
             >
               <svg
                 className="h-3.5 w-3.5"
