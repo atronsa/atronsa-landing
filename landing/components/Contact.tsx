@@ -291,7 +291,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="mb-2 block font-poppins text-[11px] sm:text-[13px] text-light-gray"
+                      className="mb-2 block font-poppins text-xs sm:text-[13px] text-light-gray"
                     >
                       Full name
                     </label>
@@ -302,7 +302,7 @@ export default function Contact() {
                       placeholder="Your full name"
                       disabled={isSubmitting}
                       {...register("name")}
-                      className={`w-full border-b bg-transparent py-2 font-poppins text-[11px] sm:text-[13px] text-light-gray outline-none placeholder:text-white/20 transition-colors focus:border-white/50 disabled:cursor-not-allowed disabled:opacity-50 ${
+                      className={`w-full border-b bg-transparent py-2 font-poppins text-xs sm:text-[13px] text-light-gray outline-none placeholder:text-white/20 transition-colors focus:border-white/50 disabled:cursor-not-allowed disabled:opacity-50 ${
                         errors.name ? "border-red-400/60" : "border-white/12"
                       }`}
                     />
@@ -316,7 +316,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="mb-2 block font-poppins text-[11px] sm:text-[13px] text-light-gray"
+                      className="mb-2 block font-poppins text-xs sm:text-[13px] text-light-gray"
                     >
                       Email address
                     </label>
@@ -327,7 +327,7 @@ export default function Contact() {
                       placeholder="you@example.com"
                       disabled={isSubmitting}
                       {...register("email")}
-                      className={`w-full border-b bg-transparent py-2 font-poppins text-[11px] sm:text-[13px] text-light-gray outline-none placeholder:text-white/20 transition-colors focus:border-white/50 disabled:cursor-not-allowed disabled:opacity-50 ${
+                      className={`w-full border-b bg-transparent py-2 font-poppins text-xs sm:text-[13px] text-light-gray outline-none placeholder:text-white/20 transition-colors focus:border-white/50 disabled:cursor-not-allowed disabled:opacity-50 ${
                         errors.email ? "border-red-400/60" : "border-white/12"
                       }`}
                     />
@@ -343,7 +343,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="mb-2 block font-poppins text-[11px] sm:text-[13px] text-light-gray"
+                      className="mb-2 block font-poppins text-xs sm:text-[13px] text-light-gray"
                     >
                       Phone number
                     </label>
@@ -362,7 +362,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="projectType"
-                      className="mb-2 block font-poppins text-[11px] sm:text-[13px] text-light-gray"
+                      className="mb-2 block font-poppins text-xs sm:text-[13px] text-light-gray"
                     >
                       Project type
                     </label>
@@ -382,7 +382,7 @@ export default function Contact() {
                 <div className="mt-7">
                   <label
                     htmlFor="message"
-                    className="mb-2 block font-poppins text-[11px] sm:text-[13px] text-light-gray"
+                    className="mb-2 block font-poppins text-xs sm:text-[13px] text-light-gray"
                   >
                     Message
                   </label>
@@ -393,7 +393,7 @@ export default function Contact() {
                     placeholder="Tell us what you're building..."
                     disabled={isSubmitting}
                     {...register("message")}
-                    className={`w-full resize-none border-b bg-transparent font-poppins py-2 leading-6 text-[11px] sm:text-[13px] text-light-gray outline-none placeholder:text-white/20 transition-colors focus:border-white/50 disabled:cursor-not-allowed disabled:opacity-50 ${
+                    className={`w-full resize-none border-b bg-transparent font-poppins py-2 leading-6 text-xs sm:text-[13px] text-light-gray outline-none placeholder:text-white/20 transition-colors focus:border-white/50 disabled:cursor-not-allowed disabled:opacity-50 ${
                       errors.message ? "border-red-400/60" : "border-white/12"
                     }`}
                   />
@@ -413,7 +413,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group relative mt-9 flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl cursor-pointer border border-white/20 bg-white/8 px-6 py-4 font-poppins text-[11px] sm:text-[13px] text-light-gray backdrop-blur-xl transition-all duration-300 hover:border-white/30 hover:bg-white/13 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="group relative mt-9 flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl cursor-pointer border border-white/20 bg-white/8 px-6 py-4 font-poppins text-xs sm:text-[13px] text-light-gray backdrop-blur-xl transition-all duration-300 hover:border-white/30 hover:bg-white/13 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
