@@ -1,14 +1,12 @@
 use super::database::DatabaseConfig;
 use super::email::EmailConfig;
 use super::jwt::JwtConfig;
-use super::sms::SmsConfig;
 
 #[derive(Debug, Clone)]
 pub struct AppConfig {
     pub database: DatabaseConfig,
     pub jwt: JwtConfig,
     pub email: EmailConfig,
-    pub sms: SmsConfig,
     pub port: u16,
     pub environment: Environment,
 }
@@ -61,7 +59,6 @@ impl AppConfig {
             database: DatabaseConfig::init(),
             jwt: JwtConfig::init(),
             email: EmailConfig::init(),
-            sms: SmsConfig::init(),
             port,
             environment,
         }

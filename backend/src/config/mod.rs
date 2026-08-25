@@ -3,13 +3,12 @@ pub mod database;
 pub mod email;
 pub mod env;
 pub mod jwt;
-pub mod sms;
 
 pub use app::AppConfig;
+pub use database::DatabaseConfig;
 pub use email::EmailConfig;
 pub use env::Env;
 pub use jwt::JwtConfig;
-pub use sms::SmsConfig;
 
 use std::sync::OnceLock;
 
