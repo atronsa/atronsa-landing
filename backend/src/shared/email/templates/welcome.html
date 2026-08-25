@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Atronsa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f0f0f0;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: #0a0a0a;
+        }
+
+        .email-wrapper {
+            max-width: 550px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            padding: 40px 40px 32px 40px;
+            box-sizing: border-box;
+        }
+
+        /* Brand */
+
+        .brand-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .brand-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            color: #0a0a0a;
+            letter-spacing: -0.2px;
+        }
+
+        /* Content */
+
+        .content-section {
+            padding: 0;
+        }
+
+        .greeting {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            color: #0a0a0a;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .body-text {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #4d4d4d;
+            margin: 0 0 5px 0;
+            font-weight: 400;
+        }
+
+        /* Three Rows */
+
+        .feature-row {
+            margin: 32px 0;
+            border-top: 1px solid #ececec;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .feature-cell {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 17px 4px;
+        }
+
+        .feature-cell + .feature-cell {
+            border-top: 1px solid #ececec;
+        }
+
+        .feature-number {
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            border-radius: 50%;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #0a0a0a;
+            margin: 0 0 3px 0;
+            letter-spacing: 0.1px;
+        }
+
+        .feature-desc {
+            font-size: 11px;
+            color: #8c8c8c;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* CTA */
+
+        .cta-container {
+            margin: 8px 0 0 0;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #0a0a0a;
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 15px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.1px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Footer */
+
+        .divider {
+            height: 1px;
+            background-color: #ececec;
+            margin: 40px 0 28px 0;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: #0a0a0a;
+            margin: 0 0 6px 0;
+            font-weight: 400;
+        }
+
+        .footer-disclaimer {
+            font-size: 12px;
+            color: #0a0a0a;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .footer-disclaimer a {
+            color: #0a0a0a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 400;
+        }
+
+        /* Mobile */
+
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .email-wrapper {
+                padding: 28px 24px 24px 24px;
+            }
+
+            .greeting {
+                font-size: 20px;
+            }
+
+            .feature-cell {
+                padding: 16px 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="email-wrapper">
+
+        <!-- Brand -->
+        <div class="brand-row">
+            <span class="brand-logo">Atronsa</span>
+        </div>
+
+        <!-- Content -->
+        <div class="content-section">
+
+            <h1 class="greeting">
+                Welcome, {{first_name}}
+            </h1>
+
+            <p class="body-text">
+                Your Atronsa account is now open. We're glad to have you with us. You're almost there. Take a moment to finish setting up your profile
+                so your Atronsa account is ready to use.
+            </p>
+
+            <!-- Three Rows -->
+            <div class="feature-row">
+
+                <div class="feature-cell">
+                    <div class="feature-number">01</div>
+
+                    <div class="feature-content">
+                        <p class="feature-label">Complete your profile</p>
+                        <p class="feature-desc">
+                            Add the details needed to finish setting up your account.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-cell">
+                    <div class="feature-number">02</div>
+
+                    <div class="feature-content">
+                        <p class="feature-label">Review your account</p>
+                        <p class="feature-desc">
+                            Make sure your information is complete and up to date.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-cell">
+                    <div class="feature-number">03</div>
+
+                    <div class="feature-content">
+                        <p class="feature-label">Start using Atronsa</p>
+                        <p class="feature-desc">
+                            Once you're ready, head into Atronsa and explore the platform.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-container">
+                <a href="{{dashboard_url}}" class="cta-button">
+                    Complete My Profile
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="divider"></div>
+
+        <p class="footer-copyright">
+            &copy; 2026 Atronsa. All rights reserved.
+        </p>
+
+        <p class="footer-disclaimer">
+            You're receiving this email because an Atronsa account was created
+            with this address. If you didn't create this account, please
+            <a href="mailto:help@atronsa.com">
+                contact our support team
+            </a>.
+        </p>
+
+    </div>
+
+</body>
+
+</html>
