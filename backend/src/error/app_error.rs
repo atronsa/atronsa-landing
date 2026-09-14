@@ -33,6 +33,8 @@ pub enum ErrorMessage {
     EmptyPassword,
     ExceededMaxPasswordLength(usize),
     InvalidEmailFormat,
+    InvalidPhoneFormat,
+    WeakPassword,
 
     // Authentication errors
     WrongCredentials,
@@ -40,7 +42,6 @@ pub enum ErrorMessage {
     TokenNotProvided,
     UserNotAuthenticated,
     PermissionDenied,
-    
 
     // User errors
     UserNotFound,
@@ -54,6 +55,9 @@ pub enum ErrorMessage {
     AccountSuspended,
     AccountBanned,
 
+    // Wallet errors
+    WalletNotFound,
+
     // Database errors
     DatabaseError,
     UniqueConstraintViolation,
@@ -63,12 +67,22 @@ pub enum ErrorMessage {
     HashingError,
     InvalidHashFormat,
     PasswordMismatch,
+    IncorrectCurrentPassword,
     InvalidPasswordFormat,
     SamePassword,
 
     // Token/OTP errors
     InvalidOrExpiredToken,
     TokenExpired,
+    EmailAlreadyVerified,
+    OtpNotRequested,
+    OtpExpired,
+    InvalidOtp(i64),
+    OtpResendCooldown(i64),
+    OtpVerificationLocked(i64),
+    PhoneAlreadyVerified,
+    InvalidPhoneOtp,
+    PhoneOtpSendLimitReached(i64),
 
     // Server errors
     ServerError,
@@ -97,6 +111,12 @@ impl ErrorMessage {
                 format!("Password must not be more than {} characters", max)
             }
             ErrorMessage::InvalidEmailFormat => "Invalid email format".to_string(),
+            ErrorMessage::InvalidPhoneFormat => {
+                "Invalid phone number format. Use an Ethiopian mobile number".to_string()
+            }
+            ErrorMessage::WeakPassword => {
+                "Password must be at least 8 characters and include an uppercase letter, a lowercase letter, a number, and a special character".to_string()
+            }
 
             // Authentication
             ErrorMessage::WrongCredentials => "Email or password is incorrect".to_string(),
@@ -133,6 +153,9 @@ impl ErrorMessage {
             }
             ErrorMessage::AccountBanned => "Your account has been banned".to_string(),
 
+            // Wallet
+            ErrorMessage::WalletNotFound => "Wallet not found".to_string(),
+
             // Database
             ErrorMessage::DatabaseError => "A database error occurred".to_string(),
             ErrorMessage::UniqueConstraintViolation => {
@@ -144,6 +167,9 @@ impl ErrorMessage {
             ErrorMessage::HashingError => "Error while processing password".to_string(),
             ErrorMessage::InvalidHashFormat => "Invalid password hash format".to_string(),
             ErrorMessage::PasswordMismatch => "Passwords do not match".to_string(),
+            ErrorMessage::IncorrectCurrentPassword => {
+                "Current password is incorrect".to_string()
+            }
             ErrorMessage::InvalidPasswordFormat => {
                 "Password must be at least 6 characters".to_string()
             }
@@ -154,6 +180,33 @@ impl ErrorMessage {
             // Token/OTP
             ErrorMessage::InvalidOrExpiredToken => "Token is invalid or has expired".to_string(),
             ErrorMessage::TokenExpired => "Token has expired. Please request a new one".to_string(),
+            ErrorMessage::EmailAlreadyVerified => "Your email is already verified".to_string(),
+            ErrorMessage::OtpNotRequested => {
+                "No verification code was requested. Please request one first".to_string()
+            }
+            ErrorMessage::OtpExpired => {
+                "Verification code has expired. Please request a new one".to_string()
+            }
+            ErrorMessage::InvalidOtp(remaining) => format!(
+                "Invalid verification code. {} attempt(s) remaining before you're locked out for 1 hour",
+                remaining
+            ),
+            ErrorMessage::OtpResendCooldown(seconds) => format!(
+                "Please wait {} seconds before requesting a new code",
+                seconds
+            ),
+            ErrorMessage::OtpVerificationLocked(minutes) => format!(
+                "Too many failed attempts. Please try again in {} minute(s)",
+                minutes
+            ),
+            ErrorMessage::PhoneAlreadyVerified => {
+                "Your phone number is already verified".to_string()
+            }
+            ErrorMessage::InvalidPhoneOtp => "Invalid verification code".to_string(),
+            ErrorMessage::PhoneOtpSendLimitReached(minutes) => format!(
+                "Maximum verification codes sent. Please try again in {} minute(s)",
+                minutes
+            ),
 
             // Server
             ErrorMessage::ServerError => "Server error. Please try again later".to_string(),

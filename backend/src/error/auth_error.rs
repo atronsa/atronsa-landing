@@ -3,7 +3,6 @@ use axum::{
     http::StatusCode,
     response::{IntoResponse, Response},
 };
-use serde::Serialize;
 use std::fmt;
 
 use super::app_error::ErrorResponse;

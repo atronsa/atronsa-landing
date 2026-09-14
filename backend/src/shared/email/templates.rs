@@ -7,54 +7,24 @@ use super::sender::send_email;
 // Template Constants
 // ============================================
 
-const TEMPLATE_DIR: &str = "src/shared/email/templates";
-
-// Template paths
-const VERIFICATION_TEMPLATE: &str = "verification.html";
-const WELCOME_TEMPLATE: &str = "welcome.html";
-const RESET_PASSWORD_TEMPLATE: &str = "reset_password.html";
+// Baked into the binary rather than read from `src/shared/email/templates` at
+// runtime: that path is relative to the working directory, so a deployed binary
+// started from anywhere else failed every send before it reached SMTP.
+const WELCOME_TEMPLATE: &str = include_str!("templates/welcome.html");
+const RESET_PASSWORD_TEMPLATE: &str = include_str!("templates/reset_password.html");
+const VERIFY_EMAIL_TEMPLATE: &str = include_str!("templates/verify_email.html");
 
 // ============================================
 // Public Email Functions
 // ============================================
 
-/// Send email verification email
-pub async fn send_verification_email(
-    to_email: &str,
-    first_name: &str,
-    token: &str,
-    config: &EmailConfig,
-) -> Result<(), AppError> {
-    let subject = "Verify Your Email Address - Atronsa";
-    let template_path = format!("{}/{}", TEMPLATE_DIR, VERIFICATION_TEMPLATE);
-    let verification_link = build_verification_link(token, config);
-
-    let placeholders = vec![
-        ("{{first_name}}".to_string(), first_name.to_string()),
-        ("{{verification_link}}".to_string(), verification_link),
-        ("{{app_name}}".to_string(), "Atronsa".to_string()),
-        ("{{support_email}}".to_string(), config.from_email.clone()),
-    ];
-
-    send_email(
-        to_email,
-        first_name,
-        subject,
-        &template_path,
-        &placeholders,
-        config,
-    )
-    .await
-}
-
-/// Send welcome email after successful verification
+/// Send welcome email after successful registration
 pub async fn send_welcome_email(
     to_email: &str,
     first_name: &str,
     config: &EmailConfig,
 ) -> Result<(), AppError> {
     let subject = "Welcome to Atronsa";
-    let template_path = format!("{}/{}", TEMPLATE_DIR, WELCOME_TEMPLATE);
 
     let placeholders = vec![
         ("{{first_name}}".to_string(), first_name.to_string()),
@@ -70,7 +40,7 @@ pub async fn send_welcome_email(
         to_email,
         first_name,
         subject,
-        &template_path,
+        WELCOME_TEMPLATE,
         &placeholders,
         config,
     )
@@ -85,7 +55,6 @@ pub async fn send_password_reset_email(
     config: &EmailConfig,
 ) -> Result<(), AppError> {
     let subject = "Reset Your Password - Atronsa";
-    let template_path = format!("{}/{}", TEMPLATE_DIR, RESET_PASSWORD_TEMPLATE);
     let reset_link = build_reset_link(reset_token, config);
 
     let placeholders = vec![
@@ -100,7 +69,34 @@ pub async fn send_password_reset_email(
         to_email,
         first_name,
         subject,
-        &template_path,
+        RESET_PASSWORD_TEMPLATE,
+        &placeholders,
+        config,
+    )
+    .await
+}
+
+/// Send an email-verification OTP. `otp` is the plaintext 6-digit code —
+/// only its Argon2 hash is ever persisted (see `shared::otp`).
+pub async fn send_verification_otp_email(
+    to_email: &str,
+    first_name: &str,
+    otp: &str,
+    config: &EmailConfig,
+) -> Result<(), AppError> {
+    let subject = "Verify Your Email - Atronsa";
+
+    let placeholders = vec![
+        ("{{first_name}}".to_string(), first_name.to_string()),
+        ("{{otp-code}}".to_string(), otp.to_string()),
+        ("{{support_email}}".to_string(), config.from_email.clone()),
+    ];
+
+    send_email(
+        to_email,
+        first_name,
+        subject,
+        VERIFY_EMAIL_TEMPLATE,
         &placeholders,
         config,
     )
@@ -110,11 +106,6 @@ pub async fn send_password_reset_email(
 // ============================================
 // Helper Functions
 // ============================================
-
-fn build_verification_link(token: &str, _config: &EmailConfig) -> String {
-    let base_url = std::env::var("APP_URL").unwrap_or_else(|_| "http://localhost:8000".to_string());
-    format!("{}/api/v1/auth/verify-email?token={}", base_url, token)
-}
 
 fn build_reset_link(token: &str, _config: &EmailConfig) -> String {
     let base_url =

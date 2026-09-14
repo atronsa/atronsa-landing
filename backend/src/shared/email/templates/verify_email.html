@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Atronsa</title>
+
+    <title>Verify Your Atronsa Account</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +53,7 @@
             font-weight: 800;
             color: #0a0a0a;
             letter-spacing: -0.2px;
+            margin: 0;
         }
 
         /* Content */
@@ -74,11 +76,43 @@
             font-size: 13px;
             line-height: 1.7;
             color: #4d4d4d;
-            margin: 0 0 5px 0;
+            margin: 0 0 15px 0;
             font-weight: 400;
         }
 
-        /* Three Rows */
+        /* OTP */
+
+        .otp-section {
+            margin: 32px 0;
+            padding: 26px 20px;
+            background-color: #fafafa;
+            border: 1px solid #ececec;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .otp-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: #777777;
+            margin: 0 0 12px 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .otp-code {
+            font-family: 'Montserrat', 'Courier New', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0a0a0a;
+            letter-spacing: 8px;
+            margin: 0;
+            padding-left: 8px;
+            line-height: 1.2;
+        }
+
+        /* Three Steps */
 
         .feature-row {
             margin: 32px 0;
@@ -104,11 +138,13 @@
             border-radius: 50%;
             background-color: #0a0a0a;
             color: #ffffff;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-family: 'Montserrat', sans-serif;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
         }
 
@@ -122,7 +158,6 @@
             font-weight: 700;
             color: #0a0a0a;
             margin: 0 0 3px 0;
-            letter-spacing: 0.1px;
         }
 
         .feature-desc {
@@ -132,26 +167,24 @@
             line-height: 1.5;
         }
 
-        /* CTA */
+        /* Security Notice */
 
-        .cta-container {
-            margin: 8px 0 0 0;
+        .warning-box {
+            margin: 24px 0 0 0;
+            padding: 15px 18px;
+
+            background-color: #fafafa;
+            border-left: 3px solid #0a0a0a;
+
+            font-size: 12px;
+            color: #666666;
+            line-height: 1.65;
         }
 
-        .cta-button {
-            display: block;
-            width: 100%;
-            box-sizing: border-box;
-            background-color: #0a0a0a;
-            color: #ffffff !important;
-            text-decoration: none;
-            padding: 15px 24px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.1px;
-            border-radius: 8px;
-            text-align: center;
+        .warning-box strong {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #0a0a0a;
         }
 
         /* Footer */
@@ -171,7 +204,7 @@
 
         .footer-disclaimer {
             font-size: 12px;
-            color: #0a0a0a;
+            color: #777777;
             margin: 0;
             line-height: 1.6;
         }
@@ -186,6 +219,7 @@
         /* Mobile */
 
         @media screen and (max-width: 480px) {
+
             body {
                 padding: 20px 12px;
             }
@@ -196,6 +230,11 @@
 
             .greeting {
                 font-size: 20px;
+            }
+
+            .otp-code {
+                font-size: 25px;
+                letter-spacing: 6px;
             }
 
             .feature-cell {
@@ -210,70 +249,57 @@
     <div class="email-wrapper">
 
         <!-- Brand -->
+
         <div class="brand-row">
-            <span class="brand-logo">Atronsa</span>
+            <p class="brand-logo">Atronsa</p>
         </div>
 
+
         <!-- Content -->
+
         <div class="content-section">
 
             <h1 class="greeting">
-                Welcome, {{first_name}}
+                Verify your email
             </h1>
 
             <p class="body-text">
-                Your Atronsa account is now open. We're glad to have you with us. You're almost there. Take a moment to finish setting up your profile
-                so your Atronsa account is ready to use.
+                Hello {{first_name}},
             </p>
 
-            <!-- Three Rows -->
-            <div class="feature-row">
+            <p class="body-text">
+                Use the verification code below to confirm your email address
+                and finish setting up your Atronsa account.
+            </p>
 
-                <div class="feature-cell">
-                    <div class="feature-number">01</div>
 
-                    <div class="feature-content">
-                        <p class="feature-label">Complete your profile</p>
-                        <p class="feature-desc">
-                            Add the details needed to finish setting up your account.
-                        </p>
-                    </div>
-                </div>
+            <!-- OTP -->
 
-                <div class="feature-cell">
-                    <div class="feature-number">02</div>
+            <div class="otp-section">
 
-                    <div class="feature-content">
-                        <p class="feature-label">Review your account</p>
-                        <p class="feature-desc">
-                            Make sure your information is complete and up to date.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="feature-cell">
-                    <div class="feature-number">03</div>
-
-                    <div class="feature-content">
-                        <p class="feature-label">Start using Atronsa</p>
-                        <p class="feature-desc">
-                            Once you're ready, head into Atronsa and explore the platform.
-                        </p>
-                    </div>
-                </div>
+                <p class="otp-code">
+                    {{otp-code}}
+                </p>
 
             </div>
 
-            <!-- CTA -->
-            <div class="cta-container">
-                <a href="{{dashboard_url}}" class="cta-button">
-                    Complete My Profile
-                </a>
+
+
+            <!-- Security Notice -->
+
+            <div class="warning-box">
+
+                This verification code will expire in
+                <strong>3 minutes</strong>. If you didn't create an Atronsa account, you can safely ignore
+                this email.
+
             </div>
 
         </div>
 
+
         <!-- Footer -->
+
         <div class="divider"></div>
 
         <p class="footer-copyright">
@@ -281,10 +307,9 @@
         </p>
 
         <p class="footer-disclaimer">
-            You're receiving this email because an Atronsa account was created
-            with this address. If you didn't create this account, please
-            <a href="mailto:help@atronsa.com">
-                contact our support team
+            Need help?
+            <a href="mailto:{{support_email}}">
+                Contact our support team
             </a>.
         </p>
 

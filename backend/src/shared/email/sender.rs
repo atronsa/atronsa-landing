@@ -3,7 +3,6 @@ use lettre::{
     message::{Mailbox, SinglePart, header},
     transport::smtp::authentication::Credentials,
 };
-use std::fs;
 use tracing::{error, info};
 
 use crate::config::EmailConfig;
@@ -13,20 +12,20 @@ use crate::error::{AppError, ErrorMessage};
 // Email Sender
 // ============================================
 
-/// Core email sending function
+/// Core email sending function.
+///
+/// `template` is the raw HTML body, embedded at compile time by the callers in
+/// `templates.rs` — never read from disk, so a deployed binary doesn't depend on
+/// its working directory to send mail.
 pub async fn send_email(
     to_email: &str,
     to_name: &str,
     subject: &str,
-    template_path: &str,
+    template: &str,
     placeholders: &[(String, String)],
     config: &EmailConfig,
 ) -> Result<(), AppError> {
-    // Read HTML template
-    let mut html_template = fs::read_to_string(template_path).map_err(|e| {
-        error!("Failed to read email template {}: {}", template_path, e);
-        AppError::server_error(ErrorMessage::EmailSendError)
-    })?;
+    let mut html_template = template.to_string();
 
     // Replace placeholders
     for (key, value) in placeholders {
@@ -93,7 +92,7 @@ pub fn send_email_background(
     to_email: String,
     to_name: String,
     subject: String,
-    template_path: String,
+    template: &'static str,
     placeholders: Vec<(String, String)>,
     config: EmailConfig,
 ) {
@@ -102,7 +101,7 @@ pub fn send_email_background(
             &to_email,
             &to_name,
             &subject,
-            &template_path,
+            template,
             &placeholders,
             &config,
         )
